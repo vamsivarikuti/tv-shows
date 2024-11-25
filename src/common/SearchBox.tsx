@@ -13,15 +13,18 @@ import { useDebouncedValue } from "@mantine/hooks";
 import { IconSearch } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IshowSearch } from "tvmaze-api-ts";
 
 export const SearchBox = () => {
+  const navigate = useNavigate();
   const combobox = useCombobox();
   const [value, setValue] = useState("");
   const [debouncedValue] = useDebouncedValue(value, 300);
 
   const { data, isLoading } = useQuery<IshowSearch[]>({
     queryKey: ["search/shows", { q: debouncedValue }],
+    enabled: !!debouncedValue,
   });
 
   const shows = useMemo(() => data?.map(({ show }) => show), [data]);
@@ -46,7 +49,7 @@ export const SearchBox = () => {
   return (
     <Combobox
       onOptionSubmit={(optionValue) => {
-        setValue(optionValue);
+        navigate(`/show/${optionValue}`);
         combobox.closeDropdown();
       }}
       store={combobox}

@@ -1,10 +1,19 @@
-import { AppShell, Burger, Center } from "@mantine/core";
+import {
+  ActionIcon,
+  AppShell,
+  Burger,
+  Center,
+  Flex,
+  useMantineColorScheme,
+} from "@mantine/core";
 import { Outlet } from "react-router-dom";
 import { SearchBox } from "./SearchBox";
 import { useDisclosure } from "@mantine/hooks";
+import { IconMoon, IconSun } from "@tabler/icons-react";
 
 export const Layout = () => {
   const [opened, { toggle }] = useDisclosure();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
     <AppShell
@@ -17,10 +26,33 @@ export const Layout = () => {
       padding="md"
     >
       <AppShell.Header>
-        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        <Center h="inherit">
+        <Flex
+          h={"inherit"}
+          justify={"space-between"}
+          px={"md"}
+          align={"center"}
+        >
+          <div>
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              hiddenFrom="sm"
+              size="sm"
+            />
+          </div>
           <SearchBox />
-        </Center>
+          <ActionIcon
+            variant="default"
+            onClick={toggleColorScheme}
+            aria-label="Toggle Color Scheme"
+          >
+            {colorScheme === "dark" ? (
+              <IconSun></IconSun>
+            ) : (
+              <IconMoon></IconMoon>
+            )}
+          </ActionIcon>
+        </Flex>
       </AppShell.Header>
 
       <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
