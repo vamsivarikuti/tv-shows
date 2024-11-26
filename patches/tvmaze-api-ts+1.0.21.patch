@@ -1,0 +1,22 @@
+diff --git a/node_modules/tvmaze-api-ts/index.d.ts b/node_modules/tvmaze-api-ts/index.d.ts
+index 6c669a4..698a09d 100644
+--- a/node_modules/tvmaze-api-ts/index.d.ts
++++ b/node_modules/tvmaze-api-ts/index.d.ts
+@@ -2,7 +2,7 @@ export interface Ischedule {
+     time: string;
+     days: string[];
+ }
+-export interface Iratring {
++export interface Irating {
+     average: number;
+ }
+ export interface Icountry {
+@@ -129,7 +129,7 @@ export interface Ishow {
+     premiered: string;
+     officialSite: string;
+     schedule: Ischedule;
+-    ratring: Iratring;
++    rating: Irating;
+     weight: number;
+     netwoek: Inetwork;
+     webChannel: string | null;
