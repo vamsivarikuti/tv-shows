@@ -11,16 +11,17 @@ interface ShowHeaderProps {
 const parser = Parser();
 
 export const ShowHeader = ({ show }: ShowHeaderProps) => {
-  const { image, name, premiered, genres, rating, summary } = show;
+  const { image, name, premiered, genres, rating, summary, runtime } = show;
 
   return (
     <>
-      <Flex gap={"lg"}>
-        <Image src={image.medium} radius={5} />
+      <Flex gap={"lg"} direction={{ base: "column", md: "row" }}>
+        <Image src={image.medium} radius={5} w={"inherit"} />
         <Flex direction={"column"} align={"start"}>
           <Title>{name}</Title>
-          <Flex>
+          <Flex gap={"sm"}>
             <Text>{premiered.split("-").shift()}</Text>
+            <Text hidden={!runtime}>{runtime}m</Text>
           </Flex>
           <Flex gap={"xs"}>
             <IconStarFilled color="var(--mantine-color-yellow-6)" />
