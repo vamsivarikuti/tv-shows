@@ -1,5 +1,5 @@
 import { AspectRatio, Card, Image, Text } from "@mantine/core";
-import { Icast } from "tvmaze-api-ts";
+import { type Icast } from "tvmaze-api-ts";
 
 export const CastCard = ({ person, character }: Icast) => {
   return (
@@ -15,20 +15,13 @@ export const CastCard = ({ person, character }: Icast) => {
         </AspectRatio>
       </Card.Section>
 
-      {/* <Group justify="space-between" mt="md" mb="xs"> */}
       <Text fw={500} truncate>
         {person.name}
       </Text>
-      {/* <Badge color="pink">On Sale</Badge> */}
-      {/* </Group> */}
 
       <Text size="sm" c="dimmed" truncate>
         {character.name}
       </Text>
-
-      {/* <Button color="blue" fullWidth mt="md" radius="md">
-        Book classic tour now
-      </Button> */}
     </Card>
   );
 };

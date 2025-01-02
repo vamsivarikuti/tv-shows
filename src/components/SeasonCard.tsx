@@ -1,5 +1,5 @@
 import { AspectRatio, Card, Image, Text } from "@mantine/core";
-import { Iseason } from "tvmaze-api-ts";
+import { type Iseason } from "tvmaze-api-ts";
 
 export const SeasonCard = ({ number, name, image, episodeOrder }: Iseason) => {
   return (
@@ -15,18 +15,11 @@ export const SeasonCard = ({ number, name, image, episodeOrder }: Iseason) => {
         </AspectRatio>
       </Card.Section>
 
-      {/* <Group justify="space-between" mt="md" mb="xs"> */}
       <Text fw={500}>Season {number}</Text>
-      {/* <Badge color="pink">On Sale</Badge> */}
-      {/* </Group> */}
 
       <Text size="sm" c="dimmed">
         {episodeOrder} Episodes
       </Text>
-
-      {/* <Button color="blue" fullWidth mt="md" radius="md">
-        Book classic tour now
-      </Button> */}
     </Card>
   );
 };

@@ -1,6 +1,6 @@
 import { Flex, Image, Text, Title } from "@mantine/core";
 import { IconStarFilled } from "@tabler/icons-react";
-import { Ishow } from "tvmaze-api-ts";
+import { type Ishow } from "tvmaze-api-ts";
 import { Parser } from "html-to-react";
 
 interface ShowHeaderProps {

@@ -1,6 +1,6 @@
-import { Flex, Loader, Text, Title } from "@mantine/core";
+import { Flex, Loader, Title } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
-import { Icast } from "tvmaze-api-ts";
+import { type Icast } from "tvmaze-api-ts";
 import { CastCard } from "./CastCard";
 
 interface CastProps {

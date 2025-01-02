@@ -1,6 +1,6 @@
-import { Flex, Loader, Text, Title } from "@mantine/core";
+import { Flex, Loader, Title } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
-import { Iseason } from "tvmaze-api-ts";
+import { type Iseason } from "tvmaze-api-ts";
 import { SeasonCard } from "./SeasonCard";
 
 interface SeasonsProps {
